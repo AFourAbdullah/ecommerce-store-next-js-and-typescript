@@ -16,9 +16,8 @@ const Hero = () => {
   ];
 
   return (
-    <div className="w-screen flex justify-around items-center h-[500px] ">
-      <div className="absolute w-screen top-0 left-0 h-full bg-black md:clip-path-mypolygon z-0"></div>
-      <div className="w-[40%] px-4 h-[300px] flex flex-col justify-between items-start  z-10">
+    <div className="w-screen flex flex-col md:flex-row justify-around items-center h-screen overflow-x-hidden border-2 border-black ">
+      <div className="w-full md:w-[40%] flex-shrink-0 px-4 h-[300px] flex flex-col justify-between items-start  z-10">
         <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
           Welcome To Next Commerce
         </h1>
@@ -31,7 +30,9 @@ const Hero = () => {
           </Link>
         </button>
       </div>
-      <div className="w-[40%] z-10 h-[500px] flex items-center"></div>
+      <div className="w-[40%] z-10 h-[500px] flex items-center">
+        <img src="/maaain.png" alt="" className="w-full  object-cover" />
+      </div>
     </div>
   );
 };

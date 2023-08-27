@@ -14,12 +14,7 @@ const Navbar = () => {
         >
           Products
         </Link>
-        <Link
-          href="/products"
-          className="text-lg text-white hover:text-gray-500 font-bold"
-        >
-          Search
-        </Link>
+
         <Link
           href="/products"
           className="text-lg text-white hover:text-gray-500 font-bold"
