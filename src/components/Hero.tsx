@@ -4,27 +4,17 @@ import Carousel from "react-material-ui-carousel";
 import Lottie from "lottie-react";
 import animationData from "../assets/animation_llthhaf5.json";
 import Link from "next/link";
+import Image from "next/image";
 
 const Hero = () => {
-  // <Carousel className="carousel">
-  //   {train.images &&
-  //     train.images.map((item, i) => (
-  //       <img
-  //         src={item.url}
-  //         className="CarouselImage"
-  //         key={item.url}
-  //         alt="trainImage"
-  //       />
-  //     ))}
-  // </Carousel>;
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  const images = [
+    "/camwra.png",
+    "/shoes.png",
+    "/hp.png",
+    "/lp.png",
+    "/phone.png",
+  ];
+
   return (
     <div className="w-screen flex justify-around items-center h-[500px] ">
       <div className="absolute w-screen top-0 left-0 h-full bg-black md:clip-path-mypolygon z-0"></div>
@@ -41,7 +31,7 @@ const Hero = () => {
           </Link>
         </button>
       </div>
-      <div className="w-[40%] z-10 h-[300px] flex items-center"></div>
+      <div className="w-[40%] z-10 h-[500px] flex items-center"></div>
     </div>
   );
 };
