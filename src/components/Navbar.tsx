@@ -1,42 +1,65 @@
-import Image from "next/image";
-import React from "react";
-import logo from "../assets/e_logo-removebg-preview.png";
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 
 const Navbar = () => {
-  return (
-    <header className="bg-slate-800 fixed top-0 left-0 z-40 w-screen py-2 flex items-center justify-evenly">
-      <Image src={logo} alt="logo" width={50} height={50} />
-      <div className="md:flex w-[60%] gap-36 justify-center  hidden">
-        <Link
-          href="/products"
-          className="text-lg text-white hover:text-gray-500 font-bold"
-        >
-          Products
-        </Link>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  return (
+    <nav className="bg-gray-800 p-4 fixed w-full">
+      <div className="container mx-auto flex justify-between items-center">
         <Link
-          href="/products"
-          className="text-lg text-white hover:text-gray-500 font-bold"
+          href="/"
+          className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-gray-400 text-2xl font-semibold"
         >
-          Contact Us
+          Next Commerce
         </Link>
+        <div className="lg:hidden">
+          <button
+            className="text-white focus:outline-none"
+            onClick={toggleMenu}
+          >
+            <svg
+              className="h-6 w-6 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fillRule="evenodd"
+                d="M21 18H3a1 1 0 0 1 0-2h18a1 1 0 1 1 0 2zm0-6H3a1 1 0 1 1 0-2h18a1 1 0 1 1 0 2zm0-6H3a1 1 0 0 1 0-2h18a1 1 0 0 1 0 2z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          className={`lg:flex ${
+            isMenuOpen ? "block" : "hidden"
+          } lg:items-center lg:w-auto`}
+        >
+          <ul className="lg:flex space-x-4">
+            <li>
+              <Link href="/products" className="text-white hover:text-gray-300">
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link href="/cart" className="text-white hover:text-gray-300">
+                Cart
+              </Link>
+            </li>
+            <li>
+              <Link href="/account" className="text-white hover:text-gray-300">
+                Account
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div className="flex w-[20%]  justify-end gap-9">
-        <Link
-          href="/login"
-          className="md:text-lg text-sm  rounded-md  bg-black  border-white text-gray-100 border-2  py-2 px-6 font-semibold flex items-center justify-center w-[150px] text-center"
-        >
-          Login
-        </Link>
-        <Link
-          href="/signup"
-          className="md:text-lg text-sm w-[100px] rounded-md bg-white text-black border-2 border-white py-2 px-6 font-semibold flex items-center justify-center md:w-[150px] text-center"
-        >
-          Signup
-        </Link>
-      </div>
-    </header>
+    </nav>
   );
 };
 
