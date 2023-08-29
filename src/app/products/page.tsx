@@ -61,28 +61,29 @@ export default function Products() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-2">
+        <div className="grid max-[500px]:grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-2">
           {products.length !== 0 &&
             products.map((product: Product) => (
               <Link href={`/products/${product._id}`}>
                 <div
                   key={product._id}
-                  className="bg-white p-4 border rounded shadow-md shadow-slate-800"
+                  className="bg-white p-4 h-full py-5 border rounded shadow-md shadow-slate-800"
                 >
                   <img
                     src={product.images[0].url} // Assuming images is an array of URLs
                     alt={product.name}
-                    className="w-full h-40 object-cover mb-4"
+                    className="w-full h-40 object-cover sm:mb-4 mb-2"
                   />
-                  <h2 className="text-lg font-semibold">{product.name}</h2>
-                  <p className="text-gray-500 mb-2">{product.description}</p>
-                  <p className="text-lg font-semibold">${product.price}</p>
-                  <p className="text-sm text-gray-500 mb-2">
-                    {product.category}
+                  <h2 className="max-[597px]:text-base text-lg font-semibold">
+                    {product.name}
+                  </h2>
+                  <p className="text-gray-500 sm:mb-2 mb-0">
+                    {product.description}
                   </p>
-                  <p className="text-sm text-gray-500 mb-2">
-                    Stock: {product.stock}
+                  <p className="max-[597px]:text-base text-lg font-semibold">
+                    ${product.price}
                   </p>
+
                   <div className="flex items-center">
                     <div className="mr-2 text-yellow-500">
                       {/* Render star ratings here */}

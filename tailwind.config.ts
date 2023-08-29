@@ -8,6 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {},
+
     clipPath: {
       mypolygon: "polygon(78% 0, 100% 0, 100% 100%, 33% 100%);",
       loginPoly: "circle(50% at 99% 11%)",

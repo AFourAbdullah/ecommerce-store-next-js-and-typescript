@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800 p-4 top-0 left-0 fixed w-full">
+    <nav className="bg-gray-800 p-4 top-0 left-0 fixed w-full z-50">
       <div className="container mx-auto flex justify-between items-center">
         <Link
           href="/"
@@ -35,11 +36,7 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        <div
-          className={`lg:flex ${
-            isMenuOpen ? "block" : "hidden"
-          } lg:items-center lg:w-auto`}
-        >
+        <div className={`lg:flex hidden lg:items-center lg:w-auto`}>
           <ul className="lg:flex space-x-4">
             <li>
               <Link href="/products" className="text-white hover:text-gray-300">
@@ -47,12 +44,38 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/cart" className="text-white hover:text-gray-300">
-                Cart
+              <Link
+                href="/cart"
+                className="text-white text-lg hover:text-gray-300"
+              >
+                <FaShoppingCart />
               </Link>
             </li>
             <li>
               <Link href="/account" className="text-white hover:text-gray-300">
+                Account
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div
+          className={`lg:hidden ${
+            isMenuOpen ? "flex" : "hidden"
+          } absolute top-0 left-0 w-full mt-20 bg-white`}
+        >
+          <ul className="flex flex-col justify-center space-x-4 items-center">
+            <li>
+              <Link href="/products" className="text-black hover:text-gray-300">
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link href="/cart" className="text-black hover:text-gray-300">
+                Cart
+              </Link>
+            </li>
+            <li>
+              <Link href="/account" className="text-black hover:text-gray-300">
                 Account
               </Link>
             </li>
