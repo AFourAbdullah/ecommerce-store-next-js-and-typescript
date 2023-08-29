@@ -19,9 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ToastContainer position="top-center" autoClose={3000} />
-      <Navbar />
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ToastContainer position="top-center" autoClose={3000} />
+        <Navbar />
+
+        {children}
+      </body>
     </html>
   );
 }

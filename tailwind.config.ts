@@ -11,6 +11,7 @@ const config: Config = {
     clipPath: {
       mypolygon: "polygon(78% 0, 100% 0, 100% 100%, 33% 100%);",
       loginPoly: "circle(50% at 99% 11%)",
+      signUpPoly: "circle(50% at 0 14%)",
     },
   },
   plugins: [require("tailwind-clip-path")],
