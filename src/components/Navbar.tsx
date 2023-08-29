@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800 p-4 fixed w-full">
+    <nav className="bg-gray-800 p-4 top-0 left-0 fixed w-full">
       <div className="container mx-auto flex justify-between items-center">
         <Link
           href="/"
