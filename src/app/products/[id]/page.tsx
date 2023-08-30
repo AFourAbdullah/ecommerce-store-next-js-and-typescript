@@ -17,6 +17,8 @@ import axios from "axios";
 import { NextRequest } from "next/server";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { add } from "@/redux/slices/cartSlice";
 
 export default function Product(
   { params }: { params: { id: string } },
@@ -25,7 +27,12 @@ export default function Product(
   const [productDetails, setProductDetails] = useState<Product>();
   //   const { searchParams } = new URL(request.url);
   const id = params.id;
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [quantity, setquantity] = useState(1);
+  const handleAddToCart = (product: Product) => {
+    dispatch(add({ product }));
+  };
   const getDetails = async () => {
     try {
       setLoading(true);
@@ -47,25 +54,47 @@ export default function Product(
   }, [id]);
 
   return (
-    <div className="container mx-auto p-4 mt-7">
+    <div className="container mx-auto flex items-center  justify-center p-4 mt-10 h-screen ">
       {loading ? (
         <p>Loading...</p>
       ) : productDetails ? (
-        <div className="flex">
-          <div className="w-1/2 h-1/2">
+        <div className="flex items-center  h-3/4 w-3/4 bg-slate-900 text-white">
+          <div className="w-1/2 h-full">
             <img
               src={productDetails.images[0].url}
               alt={productDetails.name}
               className="max-w-full h-full object-cover"
             />
           </div>
-          <div className="w-1/2 p-4">
-            <h1 className="text-2xl font-semibold">{productDetails.name}</h1>
-            <p className="text-gray-600">{productDetails.description}</p>
-            <p className="text-lg font-semibold mt-2">
-              ${productDetails.price}
+          <div className="w-1/2 h-3/4 p-4 flex flex-col justify-around">
+            <h1 className="text-3xl font-semibold">{productDetails.name}</h1>
+            <p className="text-gray-600 text-xl">
+              {productDetails.description}
             </p>
-            <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded">
+            <p className=" font-semibold mt-2 text-xl">
+              ${productDetails.price * quantity}
+            </p>
+            <div className="flex justify-between w-[100px]">
+              <button
+                className="bg-black px-2 text-lg text-white cursor-pointer rounded-lg"
+                onClick={() => setquantity(quantity + 1)}
+              >
+                +
+              </button>
+              <h2 className="text-lg font-semibold">{quantity}</h2>
+              <button
+                className="bg-black px-2 text-lg text-white cursor-pointer rounded-lg"
+                onClick={() => {
+                  quantity > 1 && setquantity(quantity - 1);
+                }}
+              >
+                -
+              </button>
+            </div>
+            <button
+              className="bg-blue-500 text-white px-4 py-2 mt-4 rounded"
+              onClick={() => handleAddToCart(productDetails)}
+            >
               Add to Cart
             </button>
           </div>

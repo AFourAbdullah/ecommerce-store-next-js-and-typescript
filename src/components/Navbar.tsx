@@ -2,9 +2,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const items = useSelector((state: any) => state.cart);
+  console.log("lnght is", items);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -46,8 +49,11 @@ const Navbar = () => {
             <li>
               <Link
                 href="/cart"
-                className="text-white text-lg hover:text-gray-300"
+                className="text-white text-lg hover:text-gray-300 relative"
               >
+                <span className="absolute text-white top-0 right-0">
+                  {items.length}
+                </span>
                 <FaShoppingCart />
               </Link>
             </li>
