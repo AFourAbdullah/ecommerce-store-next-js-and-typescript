@@ -16,7 +16,7 @@ interface Image {
 }
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // const initialState: any =  ;
-const initialCartItems = localStorage.getItem("cartItems");
+const initialCartItems = window.localStorage.getItem("cartItems");
 
 const cartSlice = createSlice({
   name: "cart",
@@ -43,7 +43,7 @@ const cartSlice = createSlice({
       state.cartItems = state.cartItems.filter(
         (item: any) => item._id !== action.payload
       );
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      window.localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
   },
 });

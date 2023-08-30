@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
       success: true,
       user: userExists,
     });
-    response.cookies.set("token", token, {
+    response.cookies.set("user-token", token, {
       httpOnly: true,
     });
     return response;

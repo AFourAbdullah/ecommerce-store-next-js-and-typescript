@@ -1,3 +1,4 @@
+"use client";
 import CategorySection from "@/components/Categories";
 import Hero from "@/components/Hero";
 import Image from "next/image";

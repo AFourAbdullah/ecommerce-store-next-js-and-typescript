@@ -1,16 +1,14 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import jwt from "jsonwebtoken";
-import User from "./models/userModel";
+
 import { getDataFromToken } from "./utils/getDataFromToken";
 
 export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
-  const isPublicPath = path == "/login" || path == "/signup" || path == "/";
-  const token = request.cookies.get("token")?.value || "";
+  const isPublicPath = path == "/login" || path == "/signup";
+  const token = request.cookies.get("user-token")?.value || "";
   if (isPublicPath && token != "") {
-    const id = getDataFromToken(request);
-    return NextResponse.redirect(new URL(`/profile/${id}`, request.nextUrl));
+    return NextResponse.redirect(new URL(`/profile`, request.nextUrl));
   }
 
   if (!isPublicPath && !token) {
