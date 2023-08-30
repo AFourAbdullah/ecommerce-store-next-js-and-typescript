@@ -31,7 +31,7 @@ export default function Product(
   const [loading, setLoading] = useState(false);
   const [quantity, setquantity] = useState(1);
   const handleAddToCart = (product: Product) => {
-    dispatch(add({ product }));
+    dispatch(add({ ...product, quantity: 1 }));
   };
   const getDetails = async () => {
     try {
@@ -58,39 +58,23 @@ export default function Product(
       {loading ? (
         <p>Loading...</p>
       ) : productDetails ? (
-        <div className="flex items-center  h-3/4 w-3/4 bg-slate-900 text-white">
-          <div className="w-1/2 h-full">
+        <div className="flex items-center flex-col md:flex-row h-full mt-6 md:mt-0  md:h-3/4 w-3/4 bg-slate-900 text-white">
+          <div className="md:w-1/2 w-full h-1/2 md:h-full">
             <img
-              src={productDetails.images[0].url}
+              src={productDetails.images[1].url}
               alt={productDetails.name}
-              className="max-w-full h-full object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-1/2 h-3/4 p-4 flex flex-col justify-around">
-            <h1 className="text-3xl font-semibold">{productDetails.name}</h1>
-            <p className="text-gray-600 text-xl">
+          <div className="md:w-1/2 w-full h-3/4 p-4 flex flex-col justify-around">
+            <h1 className="text-3xl font-bold">{productDetails.name}</h1>
+            <p className="text-gray-400 text-xl">
               {productDetails.description}
             </p>
             <p className=" font-semibold mt-2 text-xl">
               ${productDetails.price * quantity}
             </p>
-            <div className="flex justify-between w-[100px]">
-              <button
-                className="bg-black px-2 text-lg text-white cursor-pointer rounded-lg"
-                onClick={() => setquantity(quantity + 1)}
-              >
-                +
-              </button>
-              <h2 className="text-lg font-semibold">{quantity}</h2>
-              <button
-                className="bg-black px-2 text-lg text-white cursor-pointer rounded-lg"
-                onClick={() => {
-                  quantity > 1 && setquantity(quantity - 1);
-                }}
-              >
-                -
-              </button>
-            </div>
+
             <button
               className="bg-blue-500 text-white px-4 py-2 mt-4 rounded"
               onClick={() => handleAddToCart(productDetails)}
@@ -104,4 +88,24 @@ export default function Product(
       )}
     </div>
   );
+}
+
+{
+  /* <div className="flex justify-between w-[100px]">
+  <button
+    className="bg-black px-2 text-lg text-white cursor-pointer rounded-lg"
+    onClick={() => setquantity(quantity + 1)}
+  >
+    +
+  </button>
+  <h2 className="text-lg font-semibold">{quantity}</h2>
+  <button
+    className="bg-black px-2 text-lg text-white cursor-pointer rounded-lg"
+    onClick={() => {
+      quantity > 1 && setquantity(quantity - 1);
+    }}
+  >
+    -
+  </button>
+</div>; */
 }

@@ -6,8 +6,7 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const items = useSelector((state: any) => state.cart);
-  console.log("lnght is", items);
+  const { cartItems } = useSelector((state: any) => state.cart);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -51,8 +50,8 @@ const Navbar = () => {
                 href="/cart"
                 className="text-white text-lg hover:text-gray-300 relative"
               >
-                <span className="absolute text-white top-0 right-0">
-                  {items.length}
+                <span className="absolute text-black h-5 w-5 flex items-center justify-center  top-0 right-0">
+                  {cartItems.length}
                 </span>
                 <FaShoppingCart />
               </Link>

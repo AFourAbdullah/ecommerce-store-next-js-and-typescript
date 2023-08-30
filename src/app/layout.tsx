@@ -19,15 +19,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>
+    <Providers>
+      <html lang="en">
+        <body className={inter.className}>
           <ToastContainer position="top-center" autoClose={3000} />
           <Navbar />
 
           {children}
-        </Providers>
-      </body>
-    </html>
+        </body>
+      </html>
+    </Providers>
   );
 }

@@ -64,11 +64,8 @@ export default function Products() {
         <div className="grid max-[500px]:grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-2">
           {products.length !== 0 &&
             products.map((product: Product) => (
-              <Link href={`/products/${product._id}`}>
-                <div
-                  key={product._id}
-                  className="bg-white p-4 h-full py-5 border rounded shadow-md shadow-slate-800"
-                >
+              <Link href={`/products/${product._id}`} key={product._id}>
+                <div className="bg-white p-4 h-full py-5 border rounded shadow-md shadow-slate-800">
                   <img
                     src={product.images[0].url} // Assuming images is an array of URLs
                     alt={product.name}
