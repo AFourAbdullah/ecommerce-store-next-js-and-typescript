@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gray-800 p-4 top-0 left-0 fixed w-full z-50">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container  flex justify-around items-center w-full">
         <Link
           href="/"
           className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-gray-400 text-2xl font-semibold"
@@ -38,27 +38,30 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        <div className={`lg:flex hidden lg:items-center lg:w-auto`}>
-          <ul className="lg:flex space-x-4">
+        <div
+          className={`lg:flex hidden lg:items-center lg:justify-evenly w-[30%] `}
+        >
+          <ul className="lg:flex w-[100%] justify-around space-x-4">
             <li>
               <Link href="/products" className="text-white hover:text-gray-300">
                 Products
               </Link>
             </li>
+
+            <li>
+              <Link href="/account" className="text-white hover:text-gray-300">
+                Account
+              </Link>
+            </li>
             <li>
               <Link
                 href="/cart"
-                className="text-white text-lg hover:text-gray-300 relative"
+                className="text-white text-2xl hover:text-gray-300 relative"
               >
                 <span className="absolute text-black h-5 w-5 flex items-center justify-center  top-0 right-0">
                   {cartItems.length}
                 </span>
                 <FaShoppingCart />
-              </Link>
-            </li>
-            <li>
-              <Link href="/account" className="text-white hover:text-gray-300">
-                Account
               </Link>
             </li>
           </ul>
