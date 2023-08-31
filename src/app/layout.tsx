@@ -1,3 +1,4 @@
+"use client";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
@@ -5,6 +6,12 @@ import { Inter } from "next/font/google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Providers from "@/redux/provider";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,12 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          <ToastContainer position="top-center" autoClose={3000} />
-          <Navbar />
+        <Elements stripe={stripePromise}>
+          <Providers>
+            <ToastContainer position="top-center" autoClose={3000} />
+            <Navbar />
 
-          {children}
-        </Providers>
+            {children}
+          </Providers>
+        </Elements>
       </body>
     </html>
   );

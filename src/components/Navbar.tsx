@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { FaShoppingCart } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
@@ -58,10 +58,10 @@ const Navbar = () => {
                 href="/cart"
                 className="text-white text-2xl hover:text-gray-300 relative"
               >
-                <span className="absolute text-white h-12 bg-white w-5 flex items-start  justify-end  bottom-0 right-0">
+                <span className="absolute text-black h-4 text-[14px] font-semibold mb-4 rounded-full bg-white w-4 flex items-center  justify-center  bottom-0 right-[-10px]">
                   {cartItems.length}
                 </span>
-                <FaShoppingCart />
+                <FiShoppingCart className="text-2xl" />
               </Link>
             </li>
           </ul>

@@ -6,7 +6,7 @@ export async function checkout({ lineItems }) {
   let stripePromise = null;
   const getstripe = () => {
     if (!stripePromise) {
-      stripePromise = loadStripe(process.env.NEXT_PUBLIC_API_KEY);
+      stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
     }
     return stripePromise;
   };

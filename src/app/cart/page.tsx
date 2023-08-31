@@ -2,6 +2,7 @@
 import { add, remove } from "@/redux/slices/cartSlice";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
 import { checkout } from "../../checkout";
 interface Image {
   url: string;
@@ -21,6 +22,8 @@ interface Product {
 export default function Cart() {
   const { cartItems } = useSelector((state: any) => state.cart); // Assuming your cart slice is named 'cart'
   const dispatch = useDispatch();
+  const router = useRouter();
+
   //   const [quantity, setquantity] = useState(1);
   const deleteItem = (id: number) => {
     dispatch(remove(id));
@@ -130,11 +133,7 @@ export default function Cart() {
           <div className="flex justify-center">
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded-lg"
-              onClick={() =>
-                checkout({
-                  lineItems: [{ price: grossTotal, quantity: totalQuantity }],
-                })
-              }
+              onClick={() => router.push("/paymentform")}
             >
               Proceed to Checkout
             </button>
