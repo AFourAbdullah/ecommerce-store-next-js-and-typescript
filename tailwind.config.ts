@@ -7,7 +7,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        spinSlow: "spin 8s linear infinite",
+      },
+    },
 
     clipPath: {
       mypolygon: "polygon(78% 0, 100% 0, 100% 100%, 33% 100%);",

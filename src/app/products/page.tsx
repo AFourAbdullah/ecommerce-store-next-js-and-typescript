@@ -59,7 +59,7 @@ export default function Products() {
       </div>
 
       {loading ? (
-        <p>Loading...</p>
+        <div className="animate-spin h-20 w-20 rounded-full mx-auto border-r-2 border-l-2 border-slate-900"></div>
       ) : (
         <div className="grid max-[500px]:grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-2">
           {products.length !== 0 &&
