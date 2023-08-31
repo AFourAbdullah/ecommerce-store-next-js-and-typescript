@@ -48,6 +48,10 @@ export default function Cart() {
     };
     dispatch(add(updatedProduct));
   };
+  const grossTotal = cartItems.reduce(
+    (total: number, item: Product) => total + item.quantity * item.price,
+    0
+  );
   useEffect(() => {
     console.log(cartItems, "helo");
   }, []);
@@ -101,6 +105,23 @@ export default function Cart() {
             </div>
           ))}
         </div>
+      )}
+      {grossTotal == 0 ? (
+        ""
+      ) : (
+        <>
+          <div className="mb-4">
+            <p className="text-xl   font-semibold text-center my-4">
+              Gross Total:{" "}
+              <span className="ml-5 text-slate-800">${grossTotal}</span>{" "}
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+              Proceed to Checkout
+            </button>
+          </div>
+        </>
       )}
     </div>
   );

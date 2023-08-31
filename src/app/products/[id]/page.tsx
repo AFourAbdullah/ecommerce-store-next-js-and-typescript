@@ -61,7 +61,7 @@ export default function Product(
         <div className="flex items-center flex-col md:flex-row h-full mt-6 md:mt-0  md:h-3/4 w-3/4 bg-slate-900 text-white">
           <div className="md:w-1/2 w-full h-1/2 md:h-full">
             <img
-              src={productDetails.images[1].url}
+              src={productDetails.images[0].url}
               alt={productDetails.name}
               className="w-full h-full object-cover"
             />

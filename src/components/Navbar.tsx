@@ -39,7 +39,7 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`lg:flex hidden lg:items-center lg:justify-evenly w-[30%] `}
+          className={`lg:flex hidden lg:items-center lg:justify-evenly w-[40%] `}
         >
           <ul className="lg:flex w-[100%] justify-around space-x-4">
             <li>
@@ -53,12 +53,12 @@ const Navbar = () => {
                 Account
               </Link>
             </li>
-            <li>
+            <li className="ml-10">
               <Link
                 href="/cart"
                 className="text-white text-2xl hover:text-gray-300 relative"
               >
-                <span className="absolute text-black h-5 w-5 flex items-center justify-center  top-0 right-0">
+                <span className="absolute text-white h-12 bg-white w-5 flex items-start  justify-end  bottom-0 right-0">
                   {cartItems.length}
                 </span>
                 <FaShoppingCart />
