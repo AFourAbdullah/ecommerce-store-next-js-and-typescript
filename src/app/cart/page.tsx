@@ -2,6 +2,7 @@
 import { add, remove } from "@/redux/slices/cartSlice";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { checkout } from "../../checkout";
 interface Image {
   url: string;
   // Add any other properties related to the image here if needed
@@ -50,6 +51,10 @@ export default function Cart() {
   };
   const grossTotal = cartItems.reduce(
     (total: number, item: Product) => total + item.quantity * item.price,
+    0
+  );
+  const totalQuantity = cartItems.reduce(
+    (total: number, item: Product) => total + item.quantity,
     0
   );
   useEffect(() => {
@@ -111,13 +116,26 @@ export default function Cart() {
       ) : (
         <>
           <div className="mb-4">
-            <p className="text-xl   font-semibold text-center my-4">
+            <p className="text-xl text-slate-700  font-semibold text-center my-4">
               Gross Total:{" "}
               <span className="ml-5 text-slate-800">${grossTotal}</span>{" "}
             </p>
           </div>
+          <div className="mb-4">
+            <p className="text-xl text-slate-700  font-semibold text-center my-4">
+              Total Items:{" "}
+              <span className="ml-5 text-slate-800">{totalQuantity}</span>{" "}
+            </p>
+          </div>
           <div className="flex justify-center">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+            <button
+              className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+              onClick={() =>
+                checkout({
+                  lineItems: [{ price: grossTotal, quantity: totalQuantity }],
+                })
+              }
+            >
               Proceed to Checkout
             </button>
           </div>
