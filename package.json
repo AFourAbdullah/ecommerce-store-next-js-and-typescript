@@ -20,6 +20,7 @@
     "bcryptjs": "^2.4.3",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
+    "framer-motion": "^10.16.2",
     "jsonwebtoken": "^9.0.1",
     "lottie-react": "^2.4.0",
     "mongoose": "^7.4.5",

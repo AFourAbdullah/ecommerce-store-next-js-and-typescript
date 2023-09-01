@@ -16,14 +16,14 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gray-800 p-4 top-0 left-0 fixed w-full z-50">
-      <div className="container  flex justify-around items-center w-full">
+      <div className="container justify-between flex lg:justify-around items-center w-full">
         <Link
           href="/"
           className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-gray-400 text-2xl font-semibold"
         >
           Next Commerce
         </Link>
-        <div className="lg:hidden">
+        <div className="lg:hidden ">
           <button
             className="text-white focus:outline-none"
             onClick={toggleMenu}
