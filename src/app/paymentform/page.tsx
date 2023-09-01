@@ -12,16 +12,38 @@ import axios from "axios";
 import React from "react";
 import { BsCalendar3EventFill, BsFillKeyFill } from "react-icons/bs";
 import { AiFillCreditCard } from "react-icons/ai";
+import { useSelector } from "react-redux";
+interface Product {
+  _id: number;
+  images: Image[];
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  stock: number;
+  ratings: number;
+  quantity: number;
+}
+interface Image {
+  url: string;
+  // Add any other properties related to the image here if needed
+}
 export default function PaymentForm() {
   const stripe = useStripe();
+  const { cartItems } = useSelector((state: any) => state.cart); // Assuming your cart slice is named 'cart'
+
   const elements = useElements();
   const cardElement = elements?.getElement("card");
+  const grossTotal = cartItems.reduce(
+    (total: number, item: Product) => total + item.quantity * item.price,
+    0
+  );
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       if (!stripe || !cardElement) return null;
       const { data } = await axios.post("/api/checkout_sessions", {
-        data: { amount: 89 },
+        data: { amount: grossTotal },
       });
       const clientSecret = data;
 
@@ -55,6 +77,7 @@ export default function PaymentForm() {
         <BsFillKeyFill className="absolute " />
         <CardCvcElement className=" w-[100%] px-7 h-full py-3 focus:outline-[5px]" />
       </div>
+      <h2>You will Pay {grossTotal}</h2>
       <button
         className=" bg-slate-800 text-white px-4 py-2 rounded-md hover:bg-slate-600 transition-all duration-300"
         type="submit"

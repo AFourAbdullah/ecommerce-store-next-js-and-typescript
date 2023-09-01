@@ -2,12 +2,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FiShoppingCart } from "react-icons/fi";
+import { CgProfile } from "react-icons/cg";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useSelector((state: any) => state.cart);
-
+  const { data } = useSelector((state: any) => state.user);
+  console.log("user,", data);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -47,11 +49,21 @@ const Navbar = () => {
                 Products
               </Link>
             </li>
-
-            <li>
-              <Link href="/account" className="text-white hover:text-gray-300">
-                Account
+            {!data && (
+              <Link href="/login " className="text-white hover:text-gray-300">
+                Login
               </Link>
+            )}
+            <li>
+              {data && (
+                <Link
+                  href="/account"
+                  className="text-white hover:text-gray-300 flex items-center gap-2"
+                >
+                  <CgProfile className="text-xl" />
+                  {data && data.name}
+                </Link>
+              )}
             </li>
             <li className="ml-10">
               <Link

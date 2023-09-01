@@ -1,15 +1,24 @@
-"use client";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-// const initialState: any =  ;
-const initialCartItems = localStorage.getItem("cartItems");
+export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
+  const response = await axios.get("/api/me");
+  return response.data;
+});
 
-const userSlice = createSlice({
-  name: "user",
-  initialState: {},
+const usersSlice = createSlice({
+  name: "users",
+  initialState: [],
   reducers: {
-    loadUser() {},
+    // You can define other reducers here if needed
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchUsers.fulfilled, (state, action) => {
+      // action.payload contains the fetched data, so you can update the state
+      // by directly returning the payload as the new state
+      return action.payload;
+    });
   },
 });
-export const { loadUser } = userSlice.actions;
-export default userSlice.reducer;
+
+export default usersSlice.reducer;

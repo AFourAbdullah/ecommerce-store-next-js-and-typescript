@@ -6,6 +6,9 @@ import { FcMultipleSmartphones } from "react-icons/fc";
 import { BsLaptopFill } from "react-icons/bs";
 import { GiRunningShoe } from "react-icons/gi";
 import { BsCameraFill } from "react-icons/bs";
+import { useEffect } from "react";
+import { store } from "@/redux/store";
+import { fetchUsers } from "@/redux/slices/userSlice";
 // import { BsLaptopFill } from "react-icons/bs";
 
 export default function Home() {
@@ -27,6 +30,9 @@ export default function Home() {
       iconUrl: <BsCameraFill />,
     },
   ];
+  useEffect(() => {
+    store.dispatch(fetchUsers());
+  }, []);
   return (
     <main className="overflow-x-hidden">
       <Hero />
