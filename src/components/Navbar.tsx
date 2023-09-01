@@ -65,17 +65,15 @@ const Navbar = () => {
                 </Link>
               )}
             </li>
-            <li className="ml-10">
-              <Link
-                href="/cart"
-                className="text-white text-2xl hover:text-gray-300 relative"
-              >
-                <span className="absolute text-black h-4 text-[14px] font-semibold mb-4 rounded-full bg-white w-4 flex items-center  justify-center  bottom-0 right-[-10px]">
-                  {cartItems.length}
-                </span>
-                <FiShoppingCart className="text-2xl" />
-              </Link>
-            </li>
+            <Link
+              href="/cart"
+              className="text-white text-2xl hover:text-gray-300 relative"
+            >
+              <span className="absolute text-black h-4 text-[14px] font-semibold mb-4 rounded-full bg-white w-4 flex items-center  justify-center  bottom-0 right-[-10px]">
+                {cartItems.length}
+              </span>
+              <FiShoppingCart className="text-2xl" />
+            </Link>
           </ul>
         </div>
         <div
@@ -89,11 +87,7 @@ const Navbar = () => {
                 Products
               </Link>
             </li>
-            <li>
-              <Link href="/cart" className="text-black hover:text-gray-300">
-                Cart
-              </Link>
-            </li>
+
             <li>
               <Link href="/account" className="text-black hover:text-gray-300">
                 Account

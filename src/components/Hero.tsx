@@ -16,7 +16,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="w-screen bg-gradient-to-r from-slate-900 to-slate-700 flex flex-col md:flex-row justify-around items-center h-screen overflow-x-hidden border-2 border-black ">
+    <div className="w-screen relative bg-gradient-to-r from-slate-900 to-slate-700 flex flex-col md:flex-row justify-between items-center h-screen overflow-x-hidden border-2 border-black ">
       <div className="w-full md:w-[40%] flex-shrink-0 px-4 h-[300px] flex flex-col justify-between items-start  z-10">
         <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-700 to-violet-700">
           Welcome To Next Commerce
@@ -30,8 +30,8 @@ const Hero = () => {
           </Link>
         </button>
       </div>
-      <div className="w-[40%] z-10 h-[500px] ">
-        <img src="/mainbg.png" alt="" className="w-full h-full  object-fit" />
+      <div className="absolute top-0 left-0  flex items-start h-full  justify-end w-full bg-gray-300  z-10 md:clip-path-loginPoly">
+        <img src="/mainbg.png" alt="" className="    object-cover mt-16" />
       </div>
     </div>
   );
