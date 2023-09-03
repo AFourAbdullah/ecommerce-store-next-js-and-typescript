@@ -2,6 +2,7 @@
 // import CategorySection from "@/components/Categories";
 import Slider from "@/components/SLider";
 import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
 import Image from "next/image";
 import { FcMultipleSmartphones } from "react-icons/fc";
 import { BsLaptopFill } from "react-icons/bs";
@@ -38,10 +39,11 @@ export default function Home() {
     <main className="overflow-x-hidden">
       <Hero />
       {/* <CategorySection categories={categories} /> */}
-      <h2 className="text-center text-3xl text-black my-5">
+      <h2 className="text-center text-3xl text-black mt-5">
         Featured Products
       </h2>
       <Slider />
+      <Footer />
     </main>
   );
 }

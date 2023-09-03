@@ -39,7 +39,7 @@ const Slider = () => {
       spaceBetween={50}
       slidesPerView={1}
       navigation
-      className="w-[97vw] mx-auto h-screen px-6"
+      className="w-[97vw] mx-auto h-[90vh] px-6"
     >
       {images.map((category, index) => (
         <SwiperSlide key={index}>
@@ -51,7 +51,7 @@ const Slider = () => {
                 className="w-full h-auto object-cover"
               />
             </div>
-            <div className="w-2/3 sm:w-1/2 lg:w-3/5 p-4">
+            <div className="w-2/3 sm:w-1/2 lg:w-3/5 p-4 text-center">
               <h2 className="text-3xl font-semibold">{category.title}</h2>
               <p className="mt-2 text-gray-600">{category.description}</p>
             </div>
