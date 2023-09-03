@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { checkout } from "../../checkout";
+import { loadStripe } from "@stripe/stripe-js";
 interface Image {
   url: string;
   // Add any other properties related to the image here if needed
@@ -28,6 +29,8 @@ export default function Cart() {
   const deleteItem = (id: number) => {
     dispatch(remove(id));
   };
+
+  const handleCheckout = () => {};
   const increaseQuantity = (id: number, quantity: number, stock: number) => {
     const newQty = quantity + 1;
     if (stock <= quantity) {
@@ -133,7 +136,7 @@ export default function Cart() {
           <div className="flex justify-center">
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded-lg"
-              onClick={() => router.push("/paymentform")}
+              onClick={handleCheckout}
             >
               Proceed to Checkout
             </button>

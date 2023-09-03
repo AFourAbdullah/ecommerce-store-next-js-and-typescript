@@ -17,6 +17,7 @@ const config: Config = {
       mypolygon: "polygon(78% 0, 100% 0, 100% 100%, 33% 100%);",
       loginPoly: "circle(50% at 99% 11%)",
       signUpPoly: "circle(50% at 0 14%)",
+      heroPoly: "inset(14% 20% 35% 31%)",
     },
   },
   plugins: [require("tailwind-clip-path")],
