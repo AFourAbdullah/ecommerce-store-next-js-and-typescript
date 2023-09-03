@@ -16,14 +16,14 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gray-800 p-4 top-0 left-0 fixed w-full z-50">
-      <div className="container justify-between flex lg:justify-around items-center w-full">
+      <div className="container justify-between flex md:justify-around items-center w-full">
         <Link
           href="/"
           className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-gray-400 text-2xl font-semibold"
         >
           Next Commerce
         </Link>
-        <div className="lg:hidden ">
+        <div className="md:hidden ">
           <button
             className="text-white focus:outline-none"
             onClick={toggleMenu}
@@ -41,9 +41,9 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`lg:flex hidden lg:items-center lg:justify-evenly w-[40%] `}
+          className={`md:flex ml-16 hidden md:items-center border-2 border-white md:justify-evenly w-[60%] `}
         >
-          <ul className="lg:flex w-[100%] justify-around space-x-4">
+          <ul className="md:flex w-[100%] justify-around space-x-4">
             <li>
               <Link href="/products" className="text-white hover:text-gray-300">
                 Products
@@ -77,7 +77,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div
-          className={`lg:hidden ${
+          className={`md:hidden ${
             isMenuOpen ? "flex" : "hidden"
           } absolute top-0 left-0 w-full mt-20 bg-white`}
         >
