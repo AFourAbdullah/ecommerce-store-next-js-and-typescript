@@ -1,5 +1,6 @@
 "use client";
-import CategorySection from "@/components/Categories";
+// import CategorySection from "@/components/Categories";
+import Slider from "@/components/SLider";
 import Hero from "@/components/Hero";
 import Image from "next/image";
 import { FcMultipleSmartphones } from "react-icons/fc";
@@ -36,7 +37,11 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <Hero />
-      <CategorySection categories={categories} />
+      {/* <CategorySection categories={categories} /> */}
+      <h2 className="text-center text-3xl text-black my-5">
+        Featured Products
+      </h2>
+      <Slider />
     </main>
   );
 }

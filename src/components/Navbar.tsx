@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gray-800 p-4 top-0 left-0 fixed w-full z-50">
-      <div className="container relative justify-between flex md:justify-between items-center w-full">
+      <div className="container relative justify-between flex md:justify-between items-center w-full px-3">
         <Link
           href="/"
           className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-gray-400 text-2xl font-semibold"
@@ -49,7 +49,7 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        <div className={`md:flex  hidden md:items-center   w-[50%] `}>
+        <div className={`md:flex  hidden md:items-center   w-[60%] `}>
           <ul className="md:flex w-[100%] justify-end gap-7 space-x-4">
             <li>
               <Link href="/products" className="text-white hover:text-gray-300">
