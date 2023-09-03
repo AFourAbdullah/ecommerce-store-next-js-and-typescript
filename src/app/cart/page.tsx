@@ -136,7 +136,7 @@ export default function Cart() {
           <div className="flex justify-center">
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded-lg"
-              onClick={handleCheckout}
+              onClick={() => router.push("/payment")}
             >
               Proceed to Checkout
             </button>
