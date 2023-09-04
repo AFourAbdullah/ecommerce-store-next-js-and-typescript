@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
@@ -68,7 +69,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/products" className="text-white hover:text-gray-300">
+              <Link href="/orders" className="text-white hover:text-gray-300">
                 Orders
               </Link>
             </li>
@@ -99,7 +100,7 @@ const Navbar = () => {
                 className="text-white text-2xl md:block hidden hover:text-gray-300 relative"
               >
                 <span className="absolute text-black h-4 text-[14px] font-semibold mb-4 rounded-full bg-white w-4 flex items-center justify-center bottom-0 right-[-10px]">
-                  {cartItems.length}
+                  {cartItems && cartItems.length}
                 </span>
                 <FiShoppingCart className="text-2xl" />
               </Link>
@@ -123,7 +124,7 @@ const Navbar = () => {
 
             <li>
               <Link
-                href="/products"
+                href="/orders"
                 className="text-white text-lg text-center hover:text-gray-300"
               >
                 Orders
