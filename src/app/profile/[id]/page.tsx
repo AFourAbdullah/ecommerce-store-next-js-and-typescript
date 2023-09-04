@@ -30,7 +30,7 @@ export default function UserProfile({ params }: any) {
   }, []);
   const logout = async () => {
     try {
-      const response = await axios.get("/api/logout");
+      const response = await axios.post("/api/logout");
       toast.success(response.data.message);
       dispatch(removeuser());
       router.push("/");
