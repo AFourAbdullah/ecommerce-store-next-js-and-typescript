@@ -39,10 +39,9 @@ export async function POST(request: NextRequest) {
       user: userExists,
     });
     const oneDay = 24 * 60 * 60 * 1000;
-    response.cookies.set("user-token", token, {
+    response.cookies.set("token", token, {
       httpOnly: true,
       expires: Date.now() + 15 * oneDay,
-      sameSite: "strict",
     });
     return response;
   } catch (error: any) {
