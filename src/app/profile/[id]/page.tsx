@@ -13,7 +13,7 @@ interface USERDETAILS {
   email: string;
   password: string;
 }
-export default function userProfile({ params }: any) {
+export default function UserProfile({ params }: any) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState("");
