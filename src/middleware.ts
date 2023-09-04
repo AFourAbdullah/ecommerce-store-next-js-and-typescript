@@ -7,7 +7,7 @@ import { getDataFromToken } from "./utils/getDataFromToken";
 export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isPublicPath = path == "/login" || path == "/signup";
-  const token = request.cookies.get("user-token")?.value || "";
+  const token = request.cookies.get("token")?.value || "";
   console.log(token, "token");
   if (isPublicPath && token != "") {
     return NextResponse.redirect(new URL(`/profile`, request.nextUrl));
