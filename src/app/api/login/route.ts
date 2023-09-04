@@ -40,8 +40,9 @@ export async function POST(request: NextRequest) {
     });
     const oneDay = 24 * 60 * 60 * 1000;
     response.cookies.set("user-token", token, {
-      httpOnly: false,
+      httpOnly: true,
       expires: Date.now() + 15 * oneDay,
+      sameSite: "strict",
     });
     return response;
   } catch (error: any) {
