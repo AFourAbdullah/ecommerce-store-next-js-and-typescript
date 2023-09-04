@@ -31,17 +31,17 @@ export async function POST(request: NextRequest) {
       username: userExists.name,
       password: userExists.password,
     };
-    const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {});
+    const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
+      expiresIn: "1d",
+    });
 
     const response = NextResponse.json({
       message: "User logged in successfully!",
       success: true,
       user: userExists,
     });
-    const oneDay = 24 * 60 * 60 * 1000;
     response.cookies.set("token", token, {
       httpOnly: true,
-      // expires: Date.now() + 15 * oneDay,
     });
     return response;
   } catch (error: any) {

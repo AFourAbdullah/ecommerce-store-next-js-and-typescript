@@ -14,7 +14,7 @@ interface Image {
   url: string;
   // Add any other properties related to the image here if needed
 }
-import Product from "@/app/products/[id]/page";
+// import Product from "@/app/products/[id]/page";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // const initialState: any =  ;
 // let initialCartItems = window.localStorage.getItem("cartItems");
