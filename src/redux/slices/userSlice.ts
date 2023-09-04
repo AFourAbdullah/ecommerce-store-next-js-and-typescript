@@ -11,6 +11,9 @@ const usersSlice = createSlice({
   initialState: [],
   reducers: {
     // You can define other reducers here if needed
+    removeuser() {
+      return [];
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
@@ -20,5 +23,6 @@ const usersSlice = createSlice({
     });
   },
 });
+export const { removeuser } = usersSlice.actions;
 
 export default usersSlice.reducer;

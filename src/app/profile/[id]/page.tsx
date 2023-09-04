@@ -1,10 +1,12 @@
 "use client";
 import Link from "next/link";
 import axios from "axios";
+import { removeuser } from "../../../redux/slices/userSlice";
 
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 interface USERDETAILS {
   _id: number;
   name: string;
@@ -16,6 +18,7 @@ export default function userProfile({ params }: any) {
   const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState("");
   const [userDetails, setUserDetails] = useState<USERDETAILS>();
+  const dispatch = useDispatch();
 
   async function getDetails() {
     const response = await axios.get("/api/me");
@@ -29,7 +32,8 @@ export default function userProfile({ params }: any) {
     try {
       const response = await axios.get("/api/logout");
       toast.success(response.data.message);
-      router.push("/login");
+      dispatch(removeuser());
+      router.push("/");
     } catch (error: any) {
       toast.error(error.message);
     }

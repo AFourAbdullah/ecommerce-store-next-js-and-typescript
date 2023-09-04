@@ -32,6 +32,9 @@ export default function Home() {
       iconUrl: <BsCameraFill />,
     },
   ];
+  useEffect(() => {
+    store.dispatch(fetchUsers());
+  }, []);
 
   return (
     <main className="overflow-x-hidden">

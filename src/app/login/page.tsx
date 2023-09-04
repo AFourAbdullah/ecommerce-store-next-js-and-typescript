@@ -29,7 +29,7 @@ export default function Login() {
       }
       window.localStorage.setItem("userLoggedin", JSON.stringify(data));
 
-      router.push(`/profile/${data.user._id}`);
+      router.push(`/`);
     } catch (error: any) {
       // toast.error(error.message);
       console.log(error);
