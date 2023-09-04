@@ -16,5 +16,12 @@ export async function middleware(request: NextRequest) {
   }
 }
 export const config = {
-  matcher: ["/profile", "/login", "/signup", "/profile/:id*"],
+  matcher: [
+    "/profile",
+    "/login",
+    "/signup",
+    "/profile/:id*",
+    "/orders",
+    "/payment",
+  ],
 };

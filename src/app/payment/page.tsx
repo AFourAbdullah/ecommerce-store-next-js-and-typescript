@@ -56,8 +56,8 @@ export default function Payment() {
     postStripe();
   }, []);
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center   text-black">
-      <h1 className="text-black text-2xl text-center">
+    <div className=" w-screen flex flex-col items-center justify-center mt-20  text-black">
+      <h1 className="text-2xl py-2 font-bold bg-clip-text  text-center text-transparent bg-gradient-to-r from-pink-700 to-violet-700">
         You will pay Rs. {grossTotal}
       </h1>
       {clientSecret && stripePromise && (

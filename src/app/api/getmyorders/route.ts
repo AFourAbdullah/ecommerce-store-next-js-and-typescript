@@ -3,7 +3,7 @@ import Order from "../../../models/orderModel";
 import { getDataFromToken } from "@/utils/getDataFromToken";
 export async function GET(request: NextRequest) {
   const userID = await getDataFromToken(request);
-  const orders = await Order.find({ user: userID });
+  const orders = await Order.find({ userId: userID });
 
   return NextResponse.json({
     success: true,

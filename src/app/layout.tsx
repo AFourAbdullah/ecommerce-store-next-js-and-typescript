@@ -8,6 +8,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Providers from "@/redux/provider";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { useEffect } from "react";
+import { store } from "@/redux/store";
+import { fetchUsers } from "@/redux/slices/userSlice";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -25,8 +28,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  useEffect(() => {
+    store.dispatch(fetchUsers());
+  }, []);
   return (
     <html lang="en">
+      <head>
+        <title>Next Commerce</title>
+        <meta name="description" content="Description" />
+      </head>
       <body className={inter.className}>
         <Elements stripe={stripePromise}>
           <Providers>
