@@ -17,7 +17,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="w-screen relative bg-slate-900 flex flex-col md:flex-row justify-around items-center md:h-screen overflow-x-hidden border-2 border-black ">
+    <div className=" relative bg-slate-900 flex flex-col md:flex-row justify-around items-center md:h-screen overflow-x-hidden border-2 border-black ">
       <motion.div className="w-full md:w-[50%] flex-shrink-0 px-4 md:h-[350px] h-[450px] justify-center md:gap-0 gap-5 flex flex-col md:justify-between md:items-start items-center  z-10">
         <h1 className="text-5xl font-bold bg-clip-text md:text-left text-center text-transparent bg-gradient-to-r from-pink-700 to-violet-700">
           Welcome To Next Commerce

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { useSelector } from "react-redux";
 
@@ -16,7 +17,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gray-800 p-4 top-0 left-0 fixed w-full z-50 border-b-2 border-b-white">
-      <div className="container relative flex justify-between items-center mx-auto w-full md:px-3">
+      <div className=" relative flex justify-between items-center mx-auto w-full md:px-3">
         <Link
           href="/"
           className="bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-gray-400 text-2xl font-semibold"
@@ -33,21 +34,28 @@ const Navbar = () => {
             </span>
             <FiShoppingCart className="text-2xl" />
           </Link>
-          <button
-            className="text-white focus:outline-none"
-            onClick={toggleMenu}
-          >
-            <svg
-              className="h-6 w-6 fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
+          {!isMenuOpen ? (
+            <button
+              className="text-white focus:outline-none"
+              onClick={toggleMenu}
             >
-              <path
-                fillRule="evenodd"
-                d="M21 18H3a1 1 0 0 1 0-2h18a1 1 0 1 1 0 2zm0-6H3a1 1 0 1 1 0-2h18a1 1 0 1 1 0 2zm0-6H3a1 1 0 0 1 0-2h18a1 1 0 0 1 0 2z"
-              />
-            </svg>
-          </button>
+              <svg
+                className="h-6 w-6 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M21 18H3a1 1 0 0 1 0-2h18a1 1 0 1 1 0 2zm0-6H3a1 1 0 1 1 0-2h18a1 1 0 1 1 0 2zm0-6H3a1 1 0 0 1 0-2h18a1 1 0 0 1 0 2z"
+                />
+              </svg>
+            </button>
+          ) : (
+            <AiOutlineCloseCircle
+              className="text-white text-2xl"
+              onClick={() => setIsMenuOpen(false)}
+            />
+          )}
         </div>
         <div
           className={`md:flex hidden w-[60%] justify-end 
@@ -101,9 +109,9 @@ const Navbar = () => {
         <div
           className={`md:hidden ${
             isMenuOpen ? "flex" : "hidden"
-          } absolute top-0 left-0 items-center mr-6 space-y-2 justify-center w-[100vw]  transition duration-300 ease-out  py-4 bg-slate-800  mt-20  `}
+          } absolute top-0  items-center left-0 h-[200px] border-2 border-white mr-18 space-y-2 justify-center w-[95vw]  transition duration-300 ease-out  py-4 bg-slate-800  mt-20  `}
         >
-          <ul className="flex flex-col justify-center space-y-2 items-center">
+          <ul className="flex flex-col w-full justify-center space-y-6 items-center">
             <li>
               <Link
                 href="/products"
@@ -148,6 +156,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-{
-}
