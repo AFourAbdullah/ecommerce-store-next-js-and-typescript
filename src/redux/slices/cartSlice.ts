@@ -16,7 +16,10 @@ interface Image {
 }
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // const initialState: any =  ;
-const initialCartItems = window.localStorage.getItem("cartItems");
+let initialCartItems;
+if (typeof window !== "undefined" && window.localStorage) {
+  initialCartItems = window.localStorage.getItem("cartItems");
+}
 
 const cartSlice = createSlice({
   name: "cart",
@@ -37,13 +40,23 @@ const cartSlice = createSlice({
         // If item doesn't exist, add it to the cart
         state.cartItems.push(newItem);
       }
-      window.localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      if (typeof window !== "undefined" && window.localStorage) {
+        window.localStorage.setItem(
+          "cartItems",
+          JSON.stringify(state.cartItems)
+        );
+      }
     },
     remove(state, action) {
       state.cartItems = state.cartItems.filter(
         (item: any) => item._id !== action.payload
       );
-      window.localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      if (typeof window !== "undefined" && window.localStorage) {
+        window.localStorage.setItem(
+          "cartItems",
+          JSON.stringify(state.cartItems)
+        );
+      }
     },
   },
 });
