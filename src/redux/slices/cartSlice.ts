@@ -14,14 +14,15 @@ interface Image {
   url: string;
   // Add any other properties related to the image here if needed
 }
+import Product from "@/app/products/[id]/page";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // const initialState: any =  ;
-let initialCartItems = window.localStorage.getItem("cartItems");
+// let initialCartItems = window.localStorage.getItem("cartItems");
 
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    cartItems: initialCartItems ? JSON.parse(initialCartItems) : [],
+    cartItems: [] as Product[],
   },
   reducers: {
     add(state, action) {
@@ -40,7 +41,7 @@ const cartSlice = createSlice({
     },
     remove(state, action) {
       state.cartItems = state.cartItems.filter(
-        (item: any) => item._id !== action.payload
+        (item: Product) => item._id !== action.payload
       );
     },
   },
