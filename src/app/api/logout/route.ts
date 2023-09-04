@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-export async function POST() {
+export async function GET() {
   try {
     const response = await NextResponse.json({
       message: "Logout successfully..",
       success: true,
     });
-    response.cookies.set("user-token", "", {
+    response.cookies.set("token", "", {
       httpOnly: true,
       expires: new Date(0),
     });
