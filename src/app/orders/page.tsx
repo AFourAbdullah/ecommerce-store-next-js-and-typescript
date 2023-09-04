@@ -21,7 +21,13 @@ const Orders = () => {
   const [orders, setorders] = useState([]);
   const [loading, setLoading] = useState(false);
   const [query, setquery] = useState("");
+  const [userId, setUserId] = useState("");
+  async function getDetails() {
+    const response = await axios.get("/api/me");
+    setUserId(response.data.data._id);
+  }
   const getOrders = async () => {
+    getDetails();
     try {
       setLoading(true);
       const { data } = await axios.get("/api/getmyorders");
