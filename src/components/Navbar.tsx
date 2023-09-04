@@ -101,7 +101,7 @@ const Navbar = () => {
         <div
           className={`md:hidden ${
             isMenuOpen ? "flex" : "hidden"
-          } absolute top-0 left-0 items-center mr-6 space-y-2 justify-center w-[90vw]  transition duration-300 ease-out  py-4 bg-slate-800  mt-20  `}
+          } absolute top-0 left-0 items-center mr-6 space-y-2 justify-center w-[100vw]  transition duration-300 ease-out  py-4 bg-slate-800  mt-20  `}
         >
           <ul className="flex flex-col justify-center space-y-2 items-center">
             <li>
@@ -132,8 +132,8 @@ const Navbar = () => {
             <li>
               {data && (
                 <Link
-                  href="/account"
-                  className="text-black  hover:text-gray-300 flex items-center gap-2"
+                  href="/profile"
+                  className="text-white  hover:text-gray-300 flex items-center gap-2"
                 >
                   <CgProfile className="text-xl" />
                   {data && data.name}
