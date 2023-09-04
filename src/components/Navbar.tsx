@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800 p-4 top-0 left-0 fixed w-full z-50">
+    <nav className="bg-gray-800 p-4 top-0 left-0 fixed w-full z-50 border-b-2 border-b-white">
       <div className="container relative flex justify-between items-center mx-auto w-full md:px-3">
         <Link
           href="/"
@@ -100,7 +100,7 @@ const Navbar = () => {
         <div
           className={`md:hidden ${
             isMenuOpen ? "flex" : "hidden"
-          } absolute top-0 left-0 items-center mr-6 space-y-2 justify-center w-[90vw] transition duration-150 ease-out sm:w-[50vw] py-4 bg-slate-800  mt-20  `}
+          } absolute top-0 left-0 items-center mr-6 space-y-2 justify-center w-[90vw]  transition duration-300 ease-out  py-4 bg-slate-800  mt-20  `}
         >
           <ul className="flex flex-col justify-center space-y-2 items-center">
             <li>

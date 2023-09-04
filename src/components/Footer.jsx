@@ -4,13 +4,23 @@ const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-8 px-5">
       <div className="container mx-auto flex flex-wrap justify-between">
-        <div className="w-full md:w-1/4 mb-4 md:mb-0">
-          <h2 className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-gray-400 text-2xl font-semibold">
+        <div className="w-full md:w-1/4 mb-4 md:mb-0 flex flex-col items-center">
+          <h2
+            className="text-2xl
+            font-bold
+            bg-clip-text
+            md:text-left
+            text-center
+            text-transparent
+            bg-gradient-to-r
+            from-pink-700
+            to-violet-700"
+          >
             Next Commerce
           </h2>
         </div>
 
-        <div className="w-full md:w-1/4 mb-4 md:mb-0">
+        <div className="w-full md:w-1/4 mb-4 md:mb-0 flex flex-col items-center ">
           <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
           <ul>
             <li>
@@ -31,7 +41,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="w-full md:w-1/4 mb-4 md:mb-0">
+        <div className="w-full md:w-1/4 mb-4 md:mb-0 flex flex-col items-center">
           <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
           <ul>
             <li>
@@ -67,7 +77,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="w-full md:w-1/4">
+        <div className="w-full md:w-1/4 flex flex-col items-center">
           <h3 className="text-xl font-semibold mb-4">Newsletter</h3>
           <p className="text-gray-400 mb-4">
             Subscribe to our newsletter for updates.
