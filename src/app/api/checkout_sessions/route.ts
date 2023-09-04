@@ -1,17 +1,17 @@
 import { NextResponse, NextRequest } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   typescript: true,
   apiVersion: "2023-08-16",
 });
 
 export async function POST(req: NextRequest) {
-  const { data } = await req.json();
-  const { amount } = data;
+  const { total } = await req.json();
+  // const { total } = data;
   try {
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: Number(amount) * 100,
+      amount: Number(total) * 100,
       currency: "USD",
     });
 

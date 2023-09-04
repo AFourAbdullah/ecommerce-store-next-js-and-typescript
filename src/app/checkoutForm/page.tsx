@@ -18,7 +18,7 @@ export default function CheckoutForm() {
 
   const dispatch = useDispatch();
   const [isProcessing, setIsProcessing] = useState(false);
-  const [name, setName] = useState(user.currentUser.user.name);
+  const [name, setName] = useState(user.name);
   const [address, setAddress] = useState("");
   const handleSubmit = async (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
@@ -49,54 +49,50 @@ export default function CheckoutForm() {
   };
 
   return (
-    <div className="checkoutContainer">
-      <form id="payment-form" onSubmit={handleSubmit}>
-        <h2
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            padding: "1rem 0",
-          }}
-        >
+    <div className="w-screen ">
+      <form
+        id="payment-form"
+        className="mx-auto md:w-2/5 w-full p-4 border-2 border-black mt-4"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="text-2xl font-bold bg-clip-text text-center text-transparent bg-gradient-to-r from-pink-700 to-violet-700 mb-4">
           Shipping Details
         </h2>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            width: "450px",
-            margin: "auto",
-          }}
-        >
-          <label>Name</label>
-          <input value={name} onChange={(e) => setName(e.target.value)} />
-          <label>Address</label>
+        <div className="flex flex-col space-y-2">
+          <label htmlFor="name">Name</label>
           <input
-            placeholder="Karachi"
-            onChange={(e) => setAddress(e.target.value)}
+            id="name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="border border-gray-300 rounded px-2 py-1"
           />
         </div>
-        <h2
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            padding: "1rem 0",
-          }}
-        >
+        <div className="flex flex-col space-y-2 mt-4">
+          <label htmlFor="address">Address</label>
+          <input
+            id="address"
+            type="text"
+            placeholder="Karachi"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            className="border border-gray-300 rounded px-2 py-1"
+          />
+        </div>
+        <h2 className="text-2xl font-bold bg-clip-text text-center text-transparent bg-gradient-to-r from-pink-700 to-violet-700 mb-4">
           Billing Details
         </h2>
         <PaymentElement id="payment-element" />
         <button
           disabled={isProcessing || !stripe || !elements}
-          className="payNow"
+          className="bg-blue-500 mx-auto my-6 w-[200px] text-white px-4 py-2 rounded-lg"
         >
           <span id="button-text">
-            {isProcessing ? "Processing ... " : "Pay now"}
+            {isProcessing ? "Processing..." : "Pay now"}
           </span>
         </button>
         {/* Show any error or success messages */}
-        {message && <div className="payment-message">{message}</div>}
+        {message && <div className="text-red-500 text-center">{message}</div>}
       </form>
     </div>
   );

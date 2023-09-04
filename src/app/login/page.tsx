@@ -24,11 +24,15 @@ export default function Login() {
       setLoading(true);
       const { data } = await axios.post("/api/login", user);
       console.log("login response is", data);
+      if (data.error) {
+        return toast.error(data.error);
+      }
       window.localStorage.setItem("userLoggedin", JSON.stringify(data));
 
       router.push(`/profile/${data.user._id}`);
     } catch (error: any) {
-      toast.error(error.message);
+      // toast.error(error.message);
+      console.log(error);
     } finally {
       setLoading(false);
     }
