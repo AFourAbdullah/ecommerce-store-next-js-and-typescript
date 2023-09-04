@@ -77,7 +77,7 @@ const Navbar = () => {
             <li>
               {data && (
                 <Link
-                  href="/account"
+                  href="/profile"
                   className="text-white hover:text-gray-300 flex items-center gap-2"
                 >
                   <CgProfile className="text-xl" />

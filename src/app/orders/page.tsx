@@ -40,7 +40,7 @@ const Orders = () => {
     <div className="container mx-auto mt-4 px-2">
       <h1 className="text-2xl font-bold mb-4">My Orders</h1>
       {loading ? (
-        <p>Loading...</p>
+        <div className="animate-spin h-20 w-20 rounded-full mt-10 mx-auto border-r-2 border-l-2 border-slate-900"></div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
           {orders.map((order: Order) => (
@@ -51,15 +51,15 @@ const Orders = () => {
               <h2 className="text-lg font-semibold mb-2">
                 Order ID: {order._id}
               </h2>
-              <p className="text-gray-600 mb-2">Customer: {order.customer}</p>
-              <p className="text-gray-600 mb-2">Address: {order.address}</p>
-              <p className="text-gray-600 mb-2">Total: ${order.total}</p>
+              <p className="text-gray-700 mb-2">Customer: {order.customer}</p>
+              <p className="text-gray-700 mb-2">Address: {order.address}</p>
+              <p className="text-gray-700 mb-2">Total: ${order.total}</p>
               <h3 className="text-md font-bold mt-2 mb-2  text-xl ">
                 Order Items:
               </h3>
               <ul>
                 {order.orderItems.map((item: any) => (
-                  <li key={item.product} className="flex space-x-4">
+                  <li key={item.product} className="flex space-x-4 mb-4">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -73,7 +73,7 @@ const Orders = () => {
                   </li>
                 ))}
               </ul>
-              <p className="text-sm text-gray-600">
+              <p className="text-lg text-gray-700">
                 Status: {order.status === 0 ? "Processing" : "Completed"}
               </p>
             </div>

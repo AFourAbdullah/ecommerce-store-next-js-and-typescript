@@ -35,15 +35,29 @@ export default function userProfile({ params }: any) {
     }
   };
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-4xl">Profile of {userId}</h1>
-      <h1 className="text-4xl">Name {userDetails && userDetails.name}</h1>
-      <button
-        onClick={logout}
-        className="p-2 bg-slate-900 text-white hover:bg-slate-700 cursor-pointer border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
-      >
-        Logout
-      </button>
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen py-2">
+      <div className="md:w-1/2 p-4">
+        <h1 className="text-4xl mb-4">
+          Name: {userDetails && userDetails.name}
+        </h1>
+        <h1 className="text-4xl mb-4">
+          Name: {userDetails && userDetails.email}
+        </h1>
+        <button
+          onClick={logout}
+          className="p-2 bg-slate-900 text-white hover:bg-slate-700 cursor-pointer border border-gray-300 rounded-lg focus:outline-none focus:border-gray-600"
+        >
+          Logout
+        </button>
+      </div>
+      <div className="md:w-1/2 p-4">
+        {/* Add an SVG image from the public folder */}
+        <img
+          src="/profilebg.svg" // Replace with your SVG file path
+          alt="Amazing SVG"
+          className="max-w-full h-auto"
+        />
+      </div>
     </div>
   );
 }
