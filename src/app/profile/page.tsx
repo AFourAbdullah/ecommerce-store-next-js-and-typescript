@@ -8,7 +8,7 @@ export default function ProfilePage() {
   const [userId, setUserId] = useState("");
   async function getDetails() {
     const token = Cookies.get("token");
-    console.log("arif: ", token);
+    console.log("token: ", token);
     if (token) {
       const response = await axios.get(`/api/me/${token}`);
       setUserId(response.data.data._id);
