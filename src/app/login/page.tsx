@@ -27,7 +27,7 @@ export default function Login() {
       if (data.error) {
         return toast.error(data.error);
       }
-      window.localStorage.setItem("userLoggedin", JSON.stringify(data));
+      // window.localStorage.setItem("userLoggedin", JSON.stringify(data));
 
       router.push(`/`);
     } catch (error: any) {
