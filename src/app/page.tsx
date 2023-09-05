@@ -14,24 +14,6 @@ import { fetchUsers } from "@/redux/slices/userSlice";
 // import { BsLaptopFill } from "react-icons/bs";
 
 export default function Home() {
-  const categories = [
-    {
-      name: "SmartPhones",
-      iconUrl: <FcMultipleSmartphones />,
-    },
-    {
-      name: "Laptops",
-      iconUrl: <BsLaptopFill />,
-    },
-    {
-      name: "Footwear",
-      iconUrl: <GiRunningShoe />,
-    },
-    {
-      name: "Camera",
-      iconUrl: <BsCameraFill />,
-    },
-  ];
   useEffect(() => {
     store.dispatch(fetchUsers());
   }, []);
@@ -39,7 +21,7 @@ export default function Home() {
   return (
     <main className="">
       <Hero />
-      {/* <CategorySection categories={categories} /> */}
+
       <h2 className="text-5xl font-bold bg-clip-text py-4 text-center text-transparent bg-gradient-to-r from-pink-700 to-violet-700">
         Featured Categories
       </h2>
