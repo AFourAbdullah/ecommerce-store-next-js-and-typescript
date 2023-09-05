@@ -68,11 +68,13 @@ const Navbar = () => {
                 Products
               </Link>
             </li>
-            <li>
-              <Link href="/orders" className="text-white hover:text-gray-300">
-                Orders
-              </Link>
-            </li>
+            {data && (
+              <li>
+                <Link href="/orders" className="text-white hover:text-gray-300">
+                  Orders
+                </Link>
+              </li>
+            )}
             {!data && (
               <li>
                 <Link
@@ -121,15 +123,17 @@ const Navbar = () => {
                 Products
               </Link>
             </li>
+            {data && (
+              <li>
+                <Link
+                  href="/orders"
+                  className="text-white text-lg text-center hover:text-gray-300"
+                >
+                  Orders
+                </Link>
+              </li>
+            )}
 
-            <li>
-              <Link
-                href="/orders"
-                className="text-white text-lg text-center hover:text-gray-300"
-              >
-                Orders
-              </Link>
-            </li>
             {!data && (
               <Link
                 href="/login "
