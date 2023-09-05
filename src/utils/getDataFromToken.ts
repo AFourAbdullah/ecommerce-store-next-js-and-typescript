@@ -1,12 +1,10 @@
-import { NextRequest } from "next/server";
+// import { NextRequest } from "next/server";
 import jwt from "jsonwebtoken";
-import { cookies } from "next/headers";
-export const getDataFromToken = (request: NextRequest) => {
+
+export const getDataFromToken = (token: string) => {
   try {
     // const token = request.cookies.get("token")?.value || "";
-    const cookieStore = cookies();
-    const token = cookieStore.get("token")?.value || "";
-    console.log("tokennssss: ", token);
+    // const token = request.cookies.get("token")?.value || "";
     const decodedToken: any = jwt.verify(token, "abcdefgh91");
     return decodedToken.id;
   } catch (error: any) {

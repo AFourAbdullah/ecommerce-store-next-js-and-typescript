@@ -16,25 +16,32 @@ interface Order {
   status: number;
 }
 import React from "react";
-
+import Cookies from "js-cookie";
 const Orders = () => {
   const [orders, setorders] = useState([]);
   const [loading, setLoading] = useState(false);
   const [query, setquery] = useState("");
   const [userId, setUserId] = useState("");
   async function getDetails() {
-    const response = await axios.get("/api/me");
-    setUserId(response.data.data._id);
+    const token = Cookies.get("token");
+    if (token) {
+      const response = await axios.get(`/api/me/${token}`);
+      setUserId(response.data.data._id);
+    }
   }
   const getOrders = async () => {
     getDetails();
     try {
       setLoading(true);
-      const { data } = await axios.get("/api/getmyorders");
-      setorders(data.orders);
+      const token = Cookies.get("token");
 
-      console.log("datasssorder", data);
-      setLoading(false);
+      if (token) {
+        const { data } = await axios.get(`/api/getmyorders/${token}`);
+        setorders(data.orders);
+
+        console.log("datasssorder", data);
+        setLoading(false);
+      }
     } catch (error: any) {
       console.log(error);
     }
