@@ -8,8 +8,8 @@ import Cookies from "js-cookie";
 export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isPublicPath = path == "/login" || path == "/signup";
-  // const token = request.cookies.get("token")?.value || "";
-  const token = Cookies.get("token");
+  const token = request.cookies.get("token")?.value || "";
+  // const token = Cookies.get("token");
 
   if (isPublicPath && token != "") {
     return NextResponse.redirect(new URL(`/profile`, request.nextUrl));
